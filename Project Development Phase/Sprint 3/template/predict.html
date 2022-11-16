@@ -1,0 +1,121 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+			integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+		<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" />
+		
+		  
+	
+	<title>Wind Energy Prediction</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='predict.css') }}">
+	</head>
+	<body>
+		
+    	
+		<header id="head">
+		<div class="head">Predicting The Energy Output Of Wind Turbine Based On Weather Condition</div>
+		</header>
+		
+
+		<div class="second">
+		<div class="left">
+			
+			<p style="padding: 8px; border: 1px solid rgb(0, 110, 255); width: 575px;"> Gɪᴠᴇ ʏᴏᴜʀ ᴄɪᴛʏ ɴᴀᴍᴇ ᴛᴏ ᴋɴᴏᴡ ᴛʜᴇ ᴡᴇᴀᴛʜᴇʀ ᴄᴏɴᴅɪᴛɪᴏɴs</p>
+			
+		<div style="margin-left:10%">
+		<form action="{{ url_for('windapi')}}"method="post" >
+				<select name="city"  required > 
+					<option value="" selected>select City</option>
+					<option value ="Ariyalur"	>	Ariyalur	</option>
+					<option value ="Andimadam"	>	Andimadam	</option>
+					<option value ="Coimbatore"	>	Coimbatore	</option>
+					<option value ="Chengalpattu"	>	Chengalpattu	</option>
+					<option value ="Cuddalore"	>	Cuddalore	</option>
+					<option value ="Chennai"	>	Chennai	</option>
+					<option value ="Dindigul"	>	Dindigul	</option>
+					<option value ="Dharmapuri"	>	Dharmapuri	</option>
+					<option value ="Erode"	>	Erode	</option>
+					<option value ="Karur"	>	Karur	</option>
+					<option value ="Kancheepuram"	>	Kancheepuram	</option>
+					<option value ="Krishnagiri"	>	Krishnagiri	</option>
+					<option value ="Kallakurichi"	>	Kallakurichi	</option>
+					<option value ="Madurai"	>	Madurai	</option>
+					<option value ="Mayiladuthurai"	>	Mayiladuthurai	</option>
+					<option value ="Nagapattinam"	>	Nagapattinam	</option>
+					<option value ="Kanyakumari"	>	Kanyakumari	</option>
+					<option value ="Namakkal"	>	Namakkal	</option>
+					<option value ="Perambalur"	>	Perambalur	</option>
+					<option value ="Pudukottai"	>	Pudukottai	</option>
+					<option value ="Ramanathapuram"	>	Ramanathapuram	</option>
+					<option value ="Ranipet"	>	Ranipet	</option>
+					<option value ="Salem"	>	Salem	</option>
+					<option value ="Sivagangai"	>	Sivagangai	</option>
+					<option value ="Tenkasi"	>	Tenkasi	</option>
+					<option value ="Thanjavur"	>	Thanjavur	</option>
+					<option value ="Theni"	>	Theni	</option>
+					<option value ="Thiruvallur"	>	Thiruvallur	</option>
+					<option value ="Thiruvarur"	>	Thiruvarur	</option>
+					<option value ="Tuticorin"	>	Tuticorin	</option>
+					<option value ="Trichirapalli"	>	Trichirapalli	</option>
+					<option value ="Thirunelveli"	>	Thirunelveli	</option>
+					<option value ="Tirupathur"	>	Tirupathur	</option>
+					<option value ="Tiruppur"	>	Tiruppur	</option>
+					<option value ="Tiruvannamalai"	>	Tiruvannamalai	</option>
+					<option value ="The Nilgiris"	>	The Nilgiris	</option>
+					<option value ="Vellore"	>	Vellore	</option>
+					<option value ="Viluppuram"	>	Viluppuram	</option>
+					<option value ="Virudhunagar"	>	Virudhunagar	</option>
+
+
+				</select><br><br>
+				<div style="margin-left:-15%"><button type="submit" class="myButton" >Check the Weather Conditions</button></div>
+			
+			</form>
+			</div>
+			<br>
+			
+			<div class="card">
+			<table style="margin-left:2%; text-align:center; border-spacing:20px;">
+				<tr>
+					<td colspan="2" style="font-size:25px;">The weather conditions of the city are</td>
+				</tr>
+				<tr>
+					<td>Temperature</td><td>{{temp}}</td>
+				</tr>
+				<tr>
+					<td>Humidity</td><td>{{humid}}</td>
+				</tr>
+				<tr>
+					<td>Pressure</td><td>{{pressure}}</td>
+				</tr>
+				<tr>
+					<td>Wind Speed</td><td>{{speed}}</td>
+				</tr>
+			</table>
+			</div>
+		</div>
+			<div class="inside">
+			<div style="font-size:23px;font-weight:bold;">Predict the Wind Energy!!</div>
+			<br><br>
+			<form action="{{ url_for('y_predict')}}"method="post">
+				<input type="text" name="theo" placeholder="Theoretical Power in KWh" required="required"  />
+				<input type="text" name="wind" placeholder="Wind Speed in m/s" required="required"  /><br><br>
+				<button type="submit" class="myButton" >Predict</button>
+			
+			</form>
+
+		   <br>
+		   <br>
+		   {{ prediction_text }}
+			
+		</div>
+		
+		
+		</div>
+
+	</body>
+	
+</html>
