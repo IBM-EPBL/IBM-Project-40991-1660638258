@@ -1,0 +1,63 @@
+.header {	
+    top:0px;	
+    margin:0px;
+    left: 0px;
+    right: 0px;
+    position: fixed;
+    background-image: linear-gradient(to right,rgb(123, 231, 84) , rgb(140, 191, 220));
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    padding-bottom: 30px;
+    font-family:Georgia, 'Times New Roman', Times, serif, serif;
+    font-size: 2.5vw;
+    width: 100%;
+    padding-left:0px;
+    text-align: center;
+    padding-top:20px;
+}
+.second{
+    top:90px;
+    bottom:0px;
+    margin:0px;
+    left:0px;
+    right: 0px;
+    position:fixed;
+    padding: 0px;
+    width: 50%;
+    background-image:url('https://i.gifer.com/79S2.gif');
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+.inside{
+    top:90px;
+    bottom:0px;
+    margin:0px;
+    left: 50%;
+    right: 0%;
+    position: fixed;
+    padding-left: 40px;
+    padding-top:15%;
+    padding-right:40px;
+    background-color: white;
+    opacity: 100%;
+    font-family:Georgia, serif;
+    color:black;
+    font-size:10px;
+    text-align:justify;
+    
+}
+.myButton{
+      border: none;
+      text-align: center;
+      cursor: pointer;
+      text-transform: uppercase;
+      outline: none;
+      overflow: hidden;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      background-image: linear-gradient(to right, rgb(123, 231, 84) , rgb(140, 191, 220));;
+      padding: 10px 15px;
+      margin: 0 auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
